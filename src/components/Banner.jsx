@@ -1,6 +1,6 @@
 const Banner = () => {
     return (
-        <section className="bg-[#d7f5dc] pt-28 pb-16">
+        <section className="bg-[#d7f5dc] pt-14 pb-16">
             <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                 {/* Left Side - Text */}
                 <div>
