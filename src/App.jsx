@@ -5,6 +5,7 @@ import MainLayout from "./layout/MainLayout";
 import Service from "./pages/Service";
 import Team from "./pages/Team";
 import Project from "./pages/Project";
+import Testimonial from "./pages/testimonial";
 
 const router = createBrowserRouter([
     {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
             { path: "team", element: <Team /> },
             { path: "service", element: <Service /> },
             { path: "projects", element: <Project /> },
+            { path: "testimonials", element: <Testimonial /> },
         ],
     },
 ]);
