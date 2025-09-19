@@ -92,7 +92,7 @@ npm run dev
 
 ## 🔗 Live Demo
 
--   🌍 **Live Website:** [https://your-live-link.netlify.app](https://your-live-link.netlify.app) _(replace with your actual deployed link)_
+-   🌍 **Live Website:** [my-digital-agency](https://my-digital-agency.netlify.app/)
 -   📦 **GitHub Repo:** [OS-TRN-B-5-F-Assignment-M-18](https://github.com/gitbugd20p/OS-TRN-B-5-F-Assignment-M-18)
 
 ---
