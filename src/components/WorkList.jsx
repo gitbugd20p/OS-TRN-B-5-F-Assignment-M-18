@@ -1,24 +1,28 @@
+import { useEffect, useState } from "react";
 import HSubHOfDiv from "./HSubHOfDiv";
+import { getWorkList } from "./../api/workListApi";
 
-const cardData = [
-    {
-        img: "/images/Activity.png", // replace with actual image path
-        title: "Grow Your Business",
-        description: "We help identify the best ways to improve your business",
-    },
-    {
-        img: "/images/Heart.png",
-        title: "Improve Brand Loyalty",
-        description: "We help identify the best ways to improve your business",
-    },
-    {
-        img: "/images/Work.png",
-        title: "Improve Business Model",
-        description: "We help identify the best ways to improve your business",
-    },
+const imageList = [
+    "/images/Activity.png",
+    "/images/Heart.png",
+    "/images/Work.png",
 ];
 
 const WorkList = () => {
+    const [workList, setWorkList] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await getWorkList();
+                setWorkList(data); // expecting [{title, description}, ...]
+            } catch (error) {
+                console.error("Error fetching work list:", error);
+            }
+        };
+        fetchData();
+    }, []);
+
     return (
         <section className="bg-white pt-28 pb-16">
             <div className="max-w-7xl mx-auto px-4 flex flex-col gap-6">
@@ -29,15 +33,15 @@ const WorkList = () => {
 
                 {/* Cards Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {cardData.map((card, index) => (
+                    {workList.map((item, index) => (
                         <div
                             key={index}
                             className="bg-white flex flex-col items-start p-6 rounded-lg"
                         >
                             {/* Image */}
                             <img
-                                src={card.img}
-                                alt={card.title}
+                                src={imageList[index % imageList.length]}
+                                alt={item.title}
                                 className="w-[93px] h-[93px] rounded-[20px] mb-6 p-[30px] bg-[#D7F5DC]"
                             />
 
@@ -49,12 +53,12 @@ const WorkList = () => {
                                     lineHeight: "1",
                                 }}
                             >
-                                {card.title}
+                                {item.title}
                             </h3>
 
                             {/* Description */}
                             <p className="text-gray-600 mb-6">
-                                {card.description}
+                                {item.description}
                             </p>
 
                             {/* Learn More Button */}
