@@ -1,11 +1,34 @@
+import { useEffect, useState } from "react";
 import {
     FaFacebookF,
     FaTwitter,
     FaLinkedinIn,
     FaInstagram,
 } from "react-icons/fa";
+import { getAllSocialLink } from "../api/allSocialLinkApi";
+
+const iconMap = {
+    facebook: FaFacebookF,
+    twitter: FaTwitter,
+    linkedin: FaLinkedinIn,
+    instagram: FaInstagram,
+};
 
 const Footer = () => {
+    const [socialLinks, setSocialLinks] = useState([]);
+
+    useEffect(() => {
+        const fetchLinks = async () => {
+            try {
+                const res = await getAllSocialLink();
+                setSocialLinks(res || []); // in case res is null/undefined
+            } catch (error) {
+                console.error("Error fetching social links:", error);
+            }
+        };
+        fetchLinks();
+    }, []);
+
     return (
         <footer className="bg-black text-gray-300 py-12">
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
@@ -21,30 +44,21 @@ const Footer = () => {
 
                     {/* Social Icons */}
                     <div className="flex justify-center md:justify-start space-x-4">
-                        <a
-                            href="#"
-                            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#20b15a] hover:bg-green-700 transition"
-                        >
-                            <FaFacebookF className="text-white" size={18} />
-                        </a>
-                        <a
-                            href="#"
-                            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#20b15a] hover:bg-green-700 transition"
-                        >
-                            <FaTwitter className="text-white" size={18} />
-                        </a>
-                        <a
-                            href="#"
-                            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#20b15a] hover:bg-green-700 transition"
-                        >
-                            <FaLinkedinIn className="text-white" size={18} />
-                        </a>
-                        <a
-                            href="#"
-                            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#20b15a] hover:bg-green-700 transition"
-                        >
-                            <FaInstagram className="text-white" size={18} />
-                        </a>
+                        {socialLinks.map((item) => {
+                            const Icon = iconMap[item.name.toLowerCase()];
+                            if (!Icon) return null; // skip if no icon defined
+                            return (
+                                <a
+                                    key={item.id}
+                                    href={`https://${item.link}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-10 h-10 flex items-center justify-center rounded-full bg-[#20b15a] hover:bg-green-700 transition"
+                                >
+                                    <Icon className="text-white" size={18} />
+                                </a>
+                            );
+                        })}
                     </div>
                 </div>
 
