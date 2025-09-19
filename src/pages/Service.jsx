@@ -1,55 +1,24 @@
 import HSubHOfDiv from "../components/HSubHOfDiv";
 import Subscribe from "../components/Subscribe";
 import ServiceCard from "../components/ServiceCard";
-
-const services = [
-    {
-        title: "Build & Launch Without Problems",
-        description:
-            "Increase your team's productivity and save time with a bot that answers and fields customer inquiries.",
-        images: [
-            "/images/Service1.png",
-            "/images/Service2.png",
-            "/images/Service3.png",
-            "/images/Service4.png",
-        ],
-    },
-    {
-        title: "Seamless Team Collaboration",
-        description:
-            "Enhance communication and project management with our easy-to-use tools designed for growth.",
-        images: [
-            "/images/Service5.png",
-            "/images/Service6.png",
-            "/images/Service7.png",
-            "/images/Service8.png",
-        ],
-    },
-    {
-        title: "Build & Launch Without Problems",
-        description:
-            "Increase your team's productivity and save time with a bot that answers and fields customer inquiries.",
-        images: [
-            "/images/Service1.png",
-            "/images/Service2.png",
-            "/images/Service3.png",
-            "/images/Service4.png",
-        ],
-    },
-    {
-        title: "Seamless Team Collaboration",
-        description:
-            "Enhance communication and project management with our easy-to-use tools designed for growth.",
-        images: [
-            "/images/Service5.png",
-            "/images/Service6.png",
-            "/images/Service7.png",
-            "/images/Service8.png",
-        ],
-    },
-];
+import { useEffect, useState } from "react";
+import { getAllServices } from "../api/allServiceApi";
 
 const Service = () => {
+    const [services, setServices] = useState([]);
+
+    useEffect(() => {
+        const fetchServices = async () => {
+            try {
+                const data = await getAllServices();
+                setServices(data);
+            } catch (error) {
+                console.error("Error fetching services:", error);
+            }
+        };
+        fetchServices();
+    }, []);
+    
     return (
         <section className="bg-white pt-28 pb-16">
             <div className="max-w-7xl mx-auto px-4 flex flex-col gap-6 pb-12">
@@ -61,12 +30,17 @@ const Service = () => {
 
                 {/* Cards Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-                    {services.map((service, index) => (
+                    {services.map((service) => (
                         <ServiceCard
-                            key={index}
+                            key={service.id}
                             title={service.title}
-                            description={service.description}
-                            images={service.images}
+                            description={service.des}
+                            images={[
+                                service.image1,
+                                service.image2,
+                                service.image3,
+                                service.image4,
+                            ]}
                         />
                     ))}
                 </div>
