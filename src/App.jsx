@@ -5,7 +5,7 @@ import MainLayout from "./layout/MainLayout";
 import Service from "./pages/Service";
 import Team from "./pages/Team";
 import Project from "./pages/Project";
-import Testimonial from "./pages/testimonial";
+import Testimonial from "./pages/Testimonial";
 import NotFound from "./components/NotFound";
 
 const router = createBrowserRouter([
