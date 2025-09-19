@@ -6,6 +6,7 @@ import Service from "./pages/Service";
 import Team from "./pages/Team";
 import Project from "./pages/Project";
 import Testimonial from "./pages/testimonial";
+import NotFound from "./components/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
             { path: "service", element: <Service /> },
             { path: "projects", element: <Project /> },
             { path: "testimonials", element: <Testimonial /> },
+            { path: "*", element: <NotFound /> },
         ],
     },
 ]);
