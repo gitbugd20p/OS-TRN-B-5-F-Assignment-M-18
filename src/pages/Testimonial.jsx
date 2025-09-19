@@ -1,53 +1,26 @@
+import { useEffect, useState } from "react";
 import HSubHOfDiv from "../components/HSubHOfDiv";
 import Subscribe from "../components/Subscribe";
 import TestimonialCard from "../components/TestimonialCard";
-
-const testimonials = [
-    {
-        image: "/images/Testimonial1.png",
-        description:
-            "This agency helped us boost our online presence and gain more customers. Their solutions really work!",
-        name: "Devon Lane",
-        position: "CEO, TechCorp",
-    },
-    {
-        image: "/images/Testimonial2.png",
-        description:
-            "Amazing experience! The team was professional and supportive throughout our project.",
-        name: "Danny Bailey",
-        position: "Marketing Manager",
-    },
-    {
-        image: "/images/Testimonial3.png",
-        description:
-            "Highly recommend this agency. They understand client needs and deliver exceptional results.",
-        name: "Alex Lov",
-        position: "Founder, StartupHub",
-    },
-    {
-        image: "/images/Testimonial4.png",
-        description:
-            "This agency helped us boost our online presence and gain more customers. Their solutions really work!",
-        name: "Devon Lane",
-        position: "CEO, TechCorp",
-    },
-    {
-        image: "/images/Testimonial5.png",
-        description:
-            "Amazing experience! The team was professional and supportive throughout our project.",
-        name: "Danny Bailey",
-        position: "Marketing Manager",
-    },
-    {
-        image: "/images/Testimonial6.png",
-        description:
-            "Highly recommend this agency. They understand client needs and deliver exceptional results.",
-        name: "Alex Lov",
-        position: "Founder, StartupHub",
-    },
-];
+import { getAllTestimonials } from "../api/allTestimonials";
 
 const Testimonial = () => {
+    const [testimonials, setTestimonials] = useState([]);
+
+    useEffect(() => {
+        const fetchTestimonials = async () => {
+            try {
+                const res = await getAllTestimonials();
+                if (res && Array.isArray(res)) {
+                    setTestimonials(res);
+                }
+            } catch (error) {
+                console.error("Error fetching testimonials:", error);
+            }
+        };
+        fetchTestimonials();
+    }, []);
+
     return (
         <section className="bg-white pt-28 pb-16">
             <div className="max-w-7xl mx-auto px-4 flex flex-col gap-6 pb-12">
@@ -63,9 +36,9 @@ const Testimonial = () => {
                         <TestimonialCard
                             key={index}
                             image={t.image}
-                            description={t.description}
+                            description={t.msg}
                             name={t.name}
-                            position={t.position}
+                            position={t.designation}
                         />
                     ))}
                 </div>
