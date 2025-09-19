@@ -1,27 +1,44 @@
+import { useEffect, useState } from "react";
+import { getStatList } from "../api/statList";
+
 const statsData = [
     {
         icon: "/icons/Group.png",
-        number: "240452",
+        key: "followers",
         text: "Followers",
     },
     {
         icon: "/icons/Like.png",
-        number: "6300",
+        key: "solved",
         text: "Solved Problems",
     },
     {
         icon: "/icons/Happy.png",
-        number: "25000",
+        key: "customers",
         text: "Happy Customers",
     },
     {
         icon: "/icons/Scan.png",
-        number: "360452",
+        key: "projects",
         text: "Projects",
     },
 ];
 
 const StatsCards = () => {
+    const [stats, setStats] = useState(null);
+
+    useEffect(() => {
+        const fetchStats = async () => {
+            try {
+                const data = await getStatList(); // should return your JSON object
+                setStats(data);
+            } catch (error) {
+                console.error("Error fetching stats:", error);
+            }
+        };
+        fetchStats();
+    }, []);
+
     return (
         <section className="bg-white py-16">
             <div className="max-w-7xl mx-auto px-4">
@@ -38,7 +55,7 @@ const StatsCards = () => {
                                 className="w-[100px] h-[100px] rounded-[10px] mb-4 p-[30px] bg-[#D7F5DC]"
                             />
 
-                            {/* Number */}
+                            {/* Number (from API or fallback) */}
                             <h3
                                 className="text-[30px] font-semibold mb-2"
                                 style={{
@@ -46,7 +63,7 @@ const StatsCards = () => {
                                     lineHeight: "1",
                                 }}
                             >
-                                {item.number}
+                                {stats ? stats[item.key] : "--"}
                             </h3>
 
                             {/* Text */}
