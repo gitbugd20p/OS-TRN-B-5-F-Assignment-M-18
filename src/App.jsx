@@ -7,6 +7,8 @@ import Team from "./pages/Team";
 import Project from "./pages/Project";
 import Testimonial from "./pages/Testimonial";
 import NotFound from "./components/NotFound";
+import LoginPage from "./pages/Login";
+import RegisterPage from "./pages/Registration";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +20,8 @@ const router = createBrowserRouter([
             { path: "service", element: <Service /> },
             { path: "projects", element: <Project /> },
             { path: "testimonials", element: <Testimonial /> },
+            { path: "login", element: <LoginPage /> },
+            { path: "register", element: <RegisterPage /> },
             { path: "*", element: <NotFound /> },
         ],
     },

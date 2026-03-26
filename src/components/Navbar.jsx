@@ -21,9 +21,11 @@ const Navbar = () => {
         <nav className="bg-white shadow-md fixed w-full z-10">
             <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
                 {/* Logo */}
-                <div className="text-2xl font-bold text-blue-600">
-                    Design<span className="text-gray-800">AGENCY</span>
-                </div>
+                <NavLink to={"/"}>
+                    <div className="text-2xl font-bold text-blue-600 cursor-pointer">
+                        Digital<span className="text-gray-800">AGENCY</span>
+                    </div>
+                </NavLink>
 
                 {/* Desktop Menu */}
                 <ul className="hidden md:flex space-x-6 font-medium">

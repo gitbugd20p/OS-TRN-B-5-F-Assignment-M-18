@@ -4,19 +4,26 @@ A modern **My Digital Agency** built with **React (Vite)** and **Tailwind CSS**,
 
 ---
 
+## 🔗 Live Demo
+
+- 🌍 **Live Website:** [my-digital-agency](https://my-digital-agency.netlify.app/)
+- 📦 **GitHub Repo:** [OS-TRN-B-5-F-Assignment-M-18](https://github.com/gitbugd20p/OS-TRN-B-5-F-Assignment-M-18)
+
+---
+
 ## 🚀 Features
 
--   🎨 **Modern UI/UX** with Tailwind CSS and responsive layout.
--   🖼️ **Dynamic Banner & Hero Section** powered by API.
--   💼 **Services Showcase** – Displays services from API.
--   📂 **Featured & All Projects** – Portfolio/projects dynamically loaded.
--   👨‍👩‍👧‍👦 **Team Section** – Meet the people behind the agency.
--   💬 **Testimonials** – Client reviews and feedback.
--   📊 **Stats Section** – Company achievements and stats.
--   🔗 **Dynamic Social Links** – Managed through API.
--   📩 **Newsletter Subscribe** – Simple subscribe component.
--   🧭 **NotFound (404) Page** – Friendly error page for invalid routes.
--   📱 **Fully Responsive** – Works across desktop, tablet, and mobile.
+- 🎨 **Modern UI/UX** with Tailwind CSS and responsive layout.
+- 🖼️ **Dynamic Banner & Hero Section** powered by API.
+- 💼 **Services Showcase** – Displays services from API.
+- 📂 **Featured & All Projects** – Portfolio/projects dynamically loaded.
+- 👨‍👩‍👧‍👦 **Team Section** – Meet the people behind the agency.
+- 💬 **Testimonials** – Client reviews and feedback.
+- 📊 **Stats Section** – Company achievements and stats.
+- 🔗 **Dynamic Social Links** – Managed through API.
+- 📩 **Newsletter Subscribe** – Simple subscribe component.
+- 🧭 **NotFound (404) Page** – Friendly error page for invalid routes.
+- 📱 **Fully Responsive** – Works across desktop, tablet, and mobile.
 
 ---
 
@@ -48,11 +55,11 @@ digital-agency
 
 ## 🛠️ Tech Stack
 
--   **Frontend:** React (Vite)
--   **Styling:** Tailwind CSS
--   **Icons:** React Icons
--   **API Calls:** Axios
--   **Routing:** React Router DOM
+- **Frontend:** React (Vite)
+- **Styling:** Tailwind CSS
+- **Icons:** React Icons
+- **API Calls:** Axios
+- **Routing:** React Router DOM
 
 ---
 
@@ -78,22 +85,15 @@ npm run dev
 
 ## 📡 API Endpoints Used
 
--   `/api/HeroListApi` → Hero section data
--   `/api/bannerBrandsApi` → Brand logos
--   `/api/allServiceApi` → Services
--   `/api/featuredProject` → Featured projects
--   `/api/allProjectApi` → All projects
--   `/api/allTeamApi` → Team members
--   `/api/allTestimonials` → Testimonials
--   `/api/statList` → Stats
--   `/api/allSocialLinkApi` → Social media links
-
----
-
-## 🔗 Live Demo
-
--   🌍 **Live Website:** [my-digital-agency](https://my-digital-agency.netlify.app/)
--   📦 **GitHub Repo:** [OS-TRN-B-5-F-Assignment-M-18](https://github.com/gitbugd20p/OS-TRN-B-5-F-Assignment-M-18)
+- `/api/HeroListApi` → Hero section data
+- `/api/bannerBrandsApi` → Brand logos
+- `/api/allServiceApi` → Services
+- `/api/featuredProject` → Featured projects
+- `/api/allProjectApi` → All projects
+- `/api/allTeamApi` → Team members
+- `/api/allTestimonials` → Testimonials
+- `/api/statList` → Stats
+- `/api/allSocialLinkApi` → Social media links
 
 ---
 
@@ -101,20 +101,20 @@ npm run dev
 
 ### 🏠 Home Page
 
-![Banner](public/images/banner-1.png)
+![Banner](public/images/digital-agency.png)
 
 ### 💼 Services
 
-![Services](public/images/Service1.png)
+![Services](public/images/digital-agency-services.png)
 
 ---
 
 ## 📌 Roadmap
 
--   ✅ Dynamic API integration for social links
--   ✅ Reusable card components (Service, Project, Testimonial)
--   🚧 Dark mode support
--   🚧 Blog/Articles section
+- ✅ Dynamic API integration for social links
+- ✅ Reusable card components (Service, Project, Testimonial)
+- 🚧 Dark mode support
+- 🚧 Blog/Articles section
 
 ---
 
